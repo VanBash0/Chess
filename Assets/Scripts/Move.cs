@@ -1,7 +1,7 @@
 public struct Move
 {
-    public (int, int) StartCell;
-    public (int, int) EndCell;
+    public (int, int) From;
+    public (int, int) To;
     public Piece ActivePiece;
     public Piece CapturedPiece;
     public bool IsEnPassant;
@@ -9,8 +9,8 @@ public struct Move
 
     public Move((int, int) start, (int, int) end, Piece active, Piece captured = null)
     {
-        StartCell = start;
-        EndCell = end;
+        From = start;
+        To = end;
         ActivePiece = active;
         CapturedPiece = captured;
         IsEnPassant = false;

@@ -19,7 +19,7 @@ public static class PossibleMoveGenerator
     {
         PieceType pieceType = piece.GetPieceType();
 
-        if (!possibleMovesByPiece.TryGetValue(pieceType, out var moveGenerator))
+        if (possibleMovesByPiece.TryGetValue(pieceType, out var moveGenerator))
         {
             return moveGenerator(x, y, piece, boardState);
 

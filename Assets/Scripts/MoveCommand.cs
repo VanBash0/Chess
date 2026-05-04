@@ -19,17 +19,17 @@ public class MoveCommand
 
     public void Execute()
     {
-        _boardState.RemovePiece(_move.StartCell);
-        _boardState.SetPiece(_move.EndCell, _move.ActivePiece);
+        _boardState.RemovePiece(_move.From);
+        _boardState.SetPiece(_move.To, _move.ActivePiece);
     }
 
     public void Undo()
     {
-        _boardState.SetPiece(_move.StartCell, _move.ActivePiece);
+        _boardState.SetPiece(_move.From, _move.ActivePiece);
 
         if (_move.CapturedPiece != null)
-            _boardState.SetPiece(_move.EndCell, _move.CapturedPiece);
+            _boardState.SetPiece(_move.To, _move.CapturedPiece);
         else
-            _boardState.RemovePiece(_move.EndCell);
+            _boardState.RemovePiece(_move.To);
     }
 }

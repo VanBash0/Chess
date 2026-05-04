@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System;
 
-public class MatchManager
+public class MatchController
 {
     private BoardState _boardState;
     private Stack<MoveCommand> _moveHistory;
@@ -13,9 +13,9 @@ public class MatchManager
         public Move Move { get; set; }
     }
 
-    public MatchManager()
+    public MatchController(BoardState boardState)
     {
-        _boardState = new BoardState();
+        _boardState = boardState;
         _moveHistory = new Stack<MoveCommand>();
     }
     
@@ -33,5 +33,14 @@ public class MatchManager
             return true;
         }
         return false;
+    }
+
+    public void Test()
+    {
+        var legalMoves = MoveGenerator.GenerateLegalMoves(_boardState);
+        foreach (var move in legalMoves)
+        {
+            UnityEngine.Debug.Log($"Legal move: {move.From} to {move.To} by {move.ActivePiece.GetColor()} {move.ActivePiece.GetPieceType()}");
+        }
     }
 }

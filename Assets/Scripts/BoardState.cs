@@ -36,11 +36,14 @@ public class BoardState
         _currentPlayer = (_currentPlayer == PlayerColor.White) ? PlayerColor.Black : PlayerColor.White;
     }
 
+    public int GetBoardSize() => _board.GetLength(0);
+
     public BoardState()
     {
         _board = new Piece[8, 8];
 
-        for (int i = 0; i < _board.Length; i++)
+        int boardSize = GetBoardSize();
+        for (int i = 0; i < boardSize; i++)
         {
             _board[i, 1] = new Piece(PieceType.Pawn, PlayerColor.White);
             _board[i, 6] = new Piece(PieceType.Pawn, PlayerColor.Black);

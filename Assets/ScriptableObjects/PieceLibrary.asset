@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a0ba9aad310e34e8ffefda857b6376, type: 3}
+  m_Name: PieceLibrary
+  m_EditorClassIdentifier: Assembly-CSharp::PieceLibrarySO
+  _pieceData:
+  - pieceType: 0
+    playerColor: 0
+    piecePrefab: {fileID: 5895792510195512458, guid: f9938d1dd297be244acb567c74dc2ecf, type: 3}
+  - pieceType: 0
+    playerColor: 1
+    piecePrefab: {fileID: 5895792510195512458, guid: f9938d1dd297be244acb567c74dc2ecf, type: 3}
+  - pieceType: 1
+    playerColor: 0
+    piecePrefab: {fileID: 5895792510195512458, guid: 0dabbe81a95a35149a682ecada06e87f, type: 3}
+  - pieceType: 1
+    playerColor: 1
+    piecePrefab: {fileID: 5895792510195512458, guid: 0dabbe81a95a35149a682ecada06e87f, type: 3}
+  - pieceType: 2
+    playerColor: 0
+    piecePrefab: {fileID: 5895792510195512458, guid: 2015fcb36a2a2d74aa12dcfbc9a89231, type: 3}
+  - pieceType: 2
+    playerColor: 1
+    piecePrefab: {fileID: 5895792510195512458, guid: 2015fcb36a2a2d74aa12dcfbc9a89231, type: 3}
+  - pieceType: 3
+    playerColor: 0
+    piecePrefab: {fileID: 5895792510195512458, guid: 383e23e63782ef1469bce58fe833dd00, type: 3}
+  - pieceType: 3
+    playerColor: 1
+    piecePrefab: {fileID: 5895792510195512458, guid: 383e23e63782ef1469bce58fe833dd00, type: 3}
+  - pieceType: 4
+    playerColor: 0
+    piecePrefab: {fileID: 5895792510195512458, guid: 1e348cef253d4d34593ff1d02b5f46d2, type: 3}
+  - pieceType: 4
+    playerColor: 1
+    piecePrefab: {fileID: 5895792510195512458, guid: 1e348cef253d4d34593ff1d02b5f46d2, type: 3}
+  - pieceType: 5
+    playerColor: 0
+    piecePrefab: {fileID: 5895792510195512458, guid: 6e30688007f1a914888ed82c2b9192bb, type: 3}
+  - pieceType: 5
+    playerColor: 1
+    piecePrefab: {fileID: 5895792510195512458, guid: 6e30688007f1a914888ed82c2b9192bb, type: 3}
