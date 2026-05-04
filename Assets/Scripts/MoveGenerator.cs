@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 
-public class MoveGenerator
+public static class MoveGenerator
 {
-    public List<Move> GenerateLegalMoves(BoardState state)
+    public static List<Move> GenerateLegalMoves(BoardState state)
     {
+        var legalMoves = new List<Move>();
         PlayerColor currentPlayerColor = state.GetCurrentPlayer();
         PlayerColor oppositePlayerColor = (currentPlayerColor == PlayerColor.Black) ? PlayerColor.White : PlayerColor.Black;
         Piece[,] board = state.GetBoard();
@@ -16,8 +17,10 @@ public class MoveGenerator
                 if (piece is null || piece.GetColor() != currentPlayerColor)
                     continue;
 
-                var possibleMoves = 
+                var possibleMoves = PossibleMoveGenerator.GetPossibleMoves(x, y, piece, state);
+                legalMoves.AddRange(possibleMoves);
             }
         }
+        return legalMoves;
     }
 }

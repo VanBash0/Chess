@@ -1,11 +1,11 @@
 public struct Move
 {
-    (int, int) StartCell;
-    (int, int) EndCell;
-    Piece ActivePiece;
-    Piece CapturedPiece;
-    bool IsEnPassant;
-    bool IsCastling;
+    public (int, int) StartCell;
+    public (int, int) EndCell;
+    public Piece ActivePiece;
+    public Piece CapturedPiece;
+    public bool IsEnPassant;
+    public bool IsCastling;
 
     public Move((int, int) start, (int, int) end, Piece active, Piece captured = null)
     {

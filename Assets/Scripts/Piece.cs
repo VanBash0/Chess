@@ -15,4 +15,10 @@ public class Piece
 
     public PlayerColor GetColor() => _color;
     public PieceType GetPieceType() => _pieceType;
+
+    public Piece(PieceType pieceType, PlayerColor color)
+    {
+        _pieceType = pieceType;
+        _color = color;
+    }
 }
