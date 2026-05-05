@@ -13,6 +13,12 @@ public static class PossibleMoveGenerator
         { PieceType.King, GetKingMoves },
     };
 
+    private static readonly (int, int)[] knightDirections = new (int, int)[]
+    {
+        (2, 1), (2, -1), (-2, 1), (-2, -1),
+        (1, 2), (1, -2), (-1, 2), (-1, -2)
+    };
+
     public static List<Move> GetPossibleMoves(int x, int y, Piece piece, BoardState boardState)
     {
         PieceType pieceType = piece.Type;
@@ -71,7 +77,23 @@ public static class PossibleMoveGenerator
 
     private static List<Move> GetKnightMoves(int x, int y, Piece knight, BoardState state)
     {
-        return new List<Move>();
+        var moves = new List<Move>();
+
+        foreach (var direction in knightDirections)
+        {
+            int targetX = x + direction.Item1;
+            int targetY = y + direction.Item2;
+            
+            if (!state.IsCellOnBoard(targetX, targetY)) continue;
+
+            var targetPiece = state.GetPiece(targetX, targetY);
+            if (targetPiece == null || targetPiece.Color != knight.Color)
+            {
+                moves.Add(new Move((x, y), (targetX, targetY), knight, targetPiece));
+            }
+        }
+
+        return moves;
     }
 
     private static List<Move> GetBishopMoves(int x, int y, Piece bishop, BoardState state)

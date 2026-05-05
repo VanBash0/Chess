@@ -14,14 +14,12 @@ public class BoardView : MonoBehaviour
 
     public void CreateInitialPieceViews(BoardState state)
     {
-        int k = 0;
-        Piece[,] board = state.GetBoard();
         int boardSize = state.GetBoardSize();
         for (int x = 0; x < boardSize; x++)
         {
             for (int y = 0; y < boardSize; y++)
             {
-                Piece piece = board[x, y];
+                Piece piece = state.GetPiece(x, y);
                 if (piece != null)
                 {
                     CreatePieceView(x, y, piece);
@@ -39,7 +37,7 @@ public class BoardView : MonoBehaviour
             return;
         }
 
-        GameObject pieceObject = Instantiate(piecePrefab, new Vector3(4 * x, 0, 4 * y), Quaternion.identity);
+        GameObject pieceObject = Instantiate(piecePrefab, new Vector3(4 * x, 0, 4 * y), Quaternion.identity, this.transform);
         _pieceViews[x, y] = pieceObject.GetComponent<PieceView>();
     }
 
