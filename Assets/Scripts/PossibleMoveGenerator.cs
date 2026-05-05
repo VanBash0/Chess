@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using UnityEngine;
 
 public static class PossibleMoveGenerator
 {
@@ -17,7 +15,7 @@ public static class PossibleMoveGenerator
 
     public static List<Move> GetPossibleMoves(int x, int y, Piece piece, BoardState boardState)
     {
-        PieceType pieceType = piece.GetPieceType();
+        PieceType pieceType = piece.Type;
 
         if (possibleMovesByPiece.TryGetValue(pieceType, out var moveGenerator))
         {
@@ -34,16 +32,39 @@ public static class PossibleMoveGenerator
     private static List<Move> GetPawnMoves(int x, int y, Piece pawn, BoardState state)
     {
         List<Move> moves = new List<Move>();
-        var board = state.GetBoard();
-        var color = state.GetCurrentPlayer();
+        var color = pawn.Color;
         int direction = (color == PlayerColor.White) ? 1 : -1;
 
-        if (state.IsCellEmpty(x, y + direction))
+        if (state.IsCellOnBoard(x, y + direction) && state.IsCellEmpty(x, y + direction))
+        {
             moves.Add(new Move((x, y), (x, y + direction), pawn));
 
-        bool isOnStartPos = (color == PlayerColor.White && y == 1) || (color == PlayerColor.Black && y == 6);
-        if (isOnStartPos && state.IsCellEmpty(x, y + 2 * direction))
-            moves.Add(new Move((x, y), (x, y + direction * 2), pawn));
+            bool isOnStartPos = (color == PlayerColor.White && y == 1) || (color == PlayerColor.Black && y == 6);
+            if (isOnStartPos && state.IsCellOnBoard(x, y + 2 * direction) && state.IsCellEmpty(x, y + 2 * direction))
+            {
+                moves.Add(new Move((x, y), (x, y + 2 * direction), pawn));
+            }
+        }
+
+        int[] dx = { 1, -1 };
+        foreach (var offsetX in dx)
+        {
+            int targetX = x + offsetX;
+            int targetY = y + direction;
+            if (!state.IsCellOnBoard(targetX, targetY)) continue;
+
+            var targetPiece = state.GetPiece(targetX, targetY);
+
+            if (targetPiece != null && targetPiece.Color != color)
+                moves.Add(new Move((x, y), (targetX, targetY), pawn, targetPiece));
+
+            else if (targetPiece == null && state.IsCellOnBoard(targetX, y) && state.GetEnPassantTarget() == (targetX, targetY))
+            {
+                var sidePawn = state.GetPiece(targetX, y);
+                if (sidePawn is not null && sidePawn.Color != color)
+                    moves.Add(new Move((x, y), (targetX, targetY), pawn, sidePawn));
+            }
+        }
 
         return moves;
     }

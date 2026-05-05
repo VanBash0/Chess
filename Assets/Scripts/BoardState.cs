@@ -8,8 +8,9 @@ public class BoardState
 {
     private Piece[,] _board;
     private PlayerColor _currentPlayer = PlayerColor.White;
-    bool _hasWhiteCastled = false;
-    bool _hasBlackCastled = false;
+    private bool _hasWhiteCastled = false;
+    private bool _hasBlackCastled = false;
+    private (int, int)? _enPassantTarget = null;
 
     public PlayerColor GetCurrentPlayer() => _currentPlayer;
 
@@ -38,6 +39,10 @@ public class BoardState
 
     public int GetBoardSize() => _board.GetLength(0);
 
+    public Piece GetPiece(int x, int y) => _board[x, y];
+
+    public (int, int)? GetEnPassantTarget() => _enPassantTarget;
+
     public BoardState()
     {
         _board = new Piece[8, 8];
@@ -48,6 +53,8 @@ public class BoardState
             _board[i, 1] = new Piece(PieceType.Pawn, PlayerColor.White);
             _board[i, 6] = new Piece(PieceType.Pawn, PlayerColor.Black);
         }
+
+        _board[5, 5] = new Piece(PieceType.Pawn, PlayerColor.White);
 
         _board[0, 0] = new Piece(PieceType.Rook, PlayerColor.White);
         _board[1, 0] = new Piece(PieceType.Knight, PlayerColor.White);

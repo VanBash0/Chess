@@ -14,7 +14,7 @@ public static class MoveGenerator
             for (int x = 0; x < boardSize; x++)
             {
                 var piece = board[x, y];
-                if (piece is null || piece.GetColor() != currentPlayerColor)
+                if (piece is null || piece.Color != currentPlayerColor)
                     continue;
 
                 var possibleMoves = PossibleMoveGenerator.GetPossibleMoves(x, y, piece, state);

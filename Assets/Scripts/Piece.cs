@@ -10,15 +10,12 @@ public enum PieceType
 
 public class Piece
 {
-    private PieceType _pieceType;
-    private PlayerColor _color;
-
-    public PlayerColor GetColor() => _color;
-    public PieceType GetPieceType() => _pieceType;
+    public PieceType Type { get; }
+    public PlayerColor Color { get; }
 
     public Piece(PieceType pieceType, PlayerColor color)
     {
-        _pieceType = pieceType;
-        _color = color;
+        Type = pieceType;
+        Color = color;
     }
 }

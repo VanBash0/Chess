@@ -14,6 +14,7 @@ public class BoardView : MonoBehaviour
 
     public void CreateInitialPieceViews(BoardState state)
     {
+        int k = 0;
         Piece[,] board = state.GetBoard();
         int boardSize = state.GetBoardSize();
         for (int x = 0; x < boardSize; x++)
@@ -31,10 +32,10 @@ public class BoardView : MonoBehaviour
 
     private void CreatePieceView(int x, int y, Piece piece)
     {
-        GameObject piecePrefab = _pieceLibrary.GetPiecePrefab(piece.GetPieceType(), piece.GetColor());
+        GameObject piecePrefab = _pieceLibrary.GetPiecePrefab(piece.Type, piece.Color);
         if (piecePrefab == null)
         {
-            Debug.LogError($"No prefab found for piece type {piece.GetPieceType()} and color {piece.GetColor()}");
+            Debug.LogError($"No prefab found for piece type {piece.Type} and color {piece.Color}");
             return;
         }
 
