@@ -40,7 +40,10 @@ public class MatchController
         var legalMoves = MoveGenerator.GenerateLegalMoves(_boardState);
         foreach (var move in legalMoves)
         {
-            UnityEngine.Debug.Log($"Legal move: {move.From} to {move.To} by {move.ActivePiece.Color} {move.ActivePiece.Type}");
+            if (move.CapturedPiece != null)
+                UnityEngine.Debug.Log($"Legal move: {move.From} to {move.To} by {move.ActivePiece.Color} {move.ActivePiece.Type} with taking of {move.CapturedPiece.Color} {move.CapturedPiece.Type}");
+            else
+                UnityEngine.Debug.Log($"Legal move: {move.From} to {move.To} by {move.ActivePiece.Color} {move.ActivePiece.Type}");
         }
     }
 }

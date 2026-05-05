@@ -16,6 +16,20 @@ public class GameManager : MonoBehaviour
         boardView.Initialize(_matchController, pieceLibrary);
         boardView.CreateInitialPieceViews(_boardState);
 
-        _matchController.Test();
+        Test();
+    }
+
+    private void Test()
+    {
+        var legalMoves = MoveGenerator.GenerateLegalMoves(_boardState);
+        foreach (var move in legalMoves)
+        {
+            var from = SquareTranslator.GetNotation(move.From);
+            var to = SquareTranslator.GetNotation(move.To);
+            if (move.CapturedPiece != null)
+                UnityEngine.Debug.Log($"Legal move: {from} to {to} by {move.ActivePiece.Color} {move.ActivePiece.Type} with taking of {move.CapturedPiece.Color} {move.CapturedPiece.Type}");
+            else
+                UnityEngine.Debug.Log($"Legal move: {from} to {to} by {move.ActivePiece.Color} {move.ActivePiece.Type}");
+        }
     }
 }

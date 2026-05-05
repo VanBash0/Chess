@@ -14,9 +14,9 @@ public class BoardState
 
     public PlayerColor GetCurrentPlayer() => _currentPlayer;
 
-    public bool IsCellEmpty(int x, int y) => _board[x, y] is null;
+    public bool IsSquareEmpty(int x, int y) => _board[x, y] is null;
 
-    public bool IsCellOnBoard(int x, int y) => (0 <= x && x < 8 && 0 <= y && y < 8);
+    public bool IsSquareOnBoard(int x, int y) => (0 <= x && x < 8 && 0 <= y && y < 8);
 
     public void RemovePiece((int, int) cell)
     {
@@ -46,11 +46,11 @@ public class BoardState
         _board = new Piece[8, 8];
 
         int boardSize = GetBoardSize();
-        for (int i = 0; i < boardSize; i++)
-        {
-            _board[i, 1] = new Piece(PieceType.Pawn, PlayerColor.White);
-            _board[i, 6] = new Piece(PieceType.Pawn, PlayerColor.Black);
-        }
+        //for (int i = 0; i < boardSize; i++)
+        //{
+        //    _board[i, 1] = new Piece(PieceType.Pawn, PlayerColor.White);
+        //    _board[i, 6] = new Piece(PieceType.Pawn, PlayerColor.Black);
+        //}
 
         _board[0, 0] = new Piece(PieceType.Rook, PlayerColor.White);
         _board[1, 0] = new Piece(PieceType.Knight, PlayerColor.White);
