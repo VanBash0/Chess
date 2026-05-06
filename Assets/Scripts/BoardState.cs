@@ -11,6 +11,8 @@ public class BoardState
     private bool _hasWhiteCastled = false;
     private bool _hasBlackCastled = false;
     private (int, int)? _enPassantTarget = null;
+    private (int, int) _whiteKingPosition = (4, 0);
+    private (int, int) _blackKingPosition = (4, 7);
 
     public PlayerColor GetCurrentPlayer() => _currentPlayer;
 
@@ -40,6 +42,16 @@ public class BoardState
     public Piece GetPiece(int x, int y) => _board[x, y];
 
     public (int, int)? GetEnPassantTarget() => _enPassantTarget;
+
+    public (int, int) GetKingPosition(PlayerColor color) => (color == PlayerColor.White) ? _whiteKingPosition : _blackKingPosition;
+
+    public void SetKingPosition(PlayerColor color, (int, int) position)
+    {
+        if (color == PlayerColor.White)
+            _whiteKingPosition = position;
+        else
+            _blackKingPosition = position;
+    }
 
     public BoardState()
     {

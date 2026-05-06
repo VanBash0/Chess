@@ -4,7 +4,7 @@ public static class MoveGenerator
 {
     public static List<Move> GenerateLegalMoves(BoardState state)
     {
-        var legalMoves = new List<Move>();
+        var pseudoLegalMoves = new List<Move>();
         PlayerColor currentPlayerColor = state.GetCurrentPlayer();
         PlayerColor oppositePlayerColor = (currentPlayerColor == PlayerColor.Black) ? PlayerColor.White : PlayerColor.Black;
         int boardSize = state.GetBoardSize();
@@ -17,9 +17,25 @@ public static class MoveGenerator
                     continue;
 
                 var possibleMoves = PossibleMoveGenerator.GetPossibleMoves(x, y, piece, state);
-                legalMoves.AddRange(possibleMoves);
+                pseudoLegalMoves.AddRange(possibleMoves);
             }
         }
+
+        var legalMoves = new List<Move>();
+        foreach (var move in pseudoLegalMoves)
+        {
+            var cmd = new MoveCommand(state, move);
+
+            cmd.Execute();
+
+            if (!CheckChecker.CheckCheck(state, currentPlayerColor))
+            {
+                legalMoves.Add(move);
+            }
+
+            cmd.Undo();
+        }
+
         return legalMoves;
     }
 }

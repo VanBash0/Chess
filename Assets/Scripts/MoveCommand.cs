@@ -21,6 +21,9 @@ public class MoveCommand
     {
         _boardState.RemovePiece(_move.From);
         _boardState.SetPiece(_move.To, _move.ActivePiece);
+
+        if (_move.ActivePiece.Type == PieceType.King)
+            _boardState.SetKingPosition(_move.ActivePiece.Color, _move.To);
     }
 
     public void Undo()
@@ -31,5 +34,8 @@ public class MoveCommand
             _boardState.SetPiece(_move.To, _move.CapturedPiece);
         else
             _boardState.RemovePiece(_move.To);
+
+        if (_move.ActivePiece.Type == PieceType.King)
+            _boardState.SetKingPosition(_move.ActivePiece.Color, _move.From);
     }
 }
