@@ -34,16 +34,4 @@ public class MatchController
         }
         return false;
     }
-
-    public void Test()
-    {
-        var legalMoves = MoveGenerator.GenerateLegalMoves(_boardState);
-        foreach (var move in legalMoves)
-        {
-            if (move.CapturedPiece != null)
-                UnityEngine.Debug.Log($"Legal move: {move.From} to {move.To} by {move.ActivePiece.Color} {move.ActivePiece.Type} with taking of {move.CapturedPiece.Color} {move.CapturedPiece.Type}");
-            else
-                UnityEngine.Debug.Log($"Legal move: {move.From} to {move.To} by {move.ActivePiece.Color} {move.ActivePiece.Type}");
-        }
-    }
 }

@@ -15,10 +15,10 @@ MonoBehaviour:
   _pieceData:
   - pieceType: 0
     playerColor: 0
-    piecePrefab: {fileID: 5895792510195512458, guid: f9938d1dd297be244acb567c74dc2ecf, type: 3}
+    piecePrefab: {fileID: 60746142002021377, guid: f9938d1dd297be244acb567c74dc2ecf, type: 3}
   - pieceType: 0
     playerColor: 1
-    piecePrefab: {fileID: 5895792510195512458, guid: f9938d1dd297be244acb567c74dc2ecf, type: 3}
+    piecePrefab: {fileID: 60746142002021377, guid: f9938d1dd297be244acb567c74dc2ecf, type: 3}
   - pieceType: 1
     playerColor: 0
     piecePrefab: {fileID: 5895792510195512458, guid: 0dabbe81a95a35149a682ecada06e87f, type: 3}

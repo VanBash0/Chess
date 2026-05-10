@@ -10,8 +10,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1368830657005001617, guid: 455303928b8120244a3d792aec1fd195, type: 3}
       propertyPath: m_Name
-      value: BasePiece
+      value: Bishop
       objectReference: {fileID: 0}
+    - target: {fileID: 2011897448788754990, guid: 455303928b8120244a3d792aec1fd195, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2011897448788754990, guid: 455303928b8120244a3d792aec1fd195, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2011897448788754990, guid: 455303928b8120244a3d792aec1fd195, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111762706620493072, guid: 455303928b8120244a3d792aec1fd195, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -7929665542823436400, guid: d8f43b2508d0b3f4080d8d18ba6a075b, type: 3}
     - target: {fileID: 8965096709362838245, guid: 455303928b8120244a3d792aec1fd195, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

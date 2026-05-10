@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4840525406755761947
+--- !u!1001 &1308507286468239248
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,8 +10,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1368830657005001617, guid: 455303928b8120244a3d792aec1fd195, type: 3}
       propertyPath: m_Name
-      value: BasePiece
+      value: Pawn
       objectReference: {fileID: 0}
+    - target: {fileID: 3111762706620493072, guid: 455303928b8120244a3d792aec1fd195, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1705324974331375986, guid: 5c16b6cf5895d8a439a8ce85849e092b, type: 3}
     - target: {fileID: 8965096709362838245, guid: 455303928b8120244a3d792aec1fd195, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

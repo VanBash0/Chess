@@ -37,7 +37,7 @@ public class BoardView : MonoBehaviour
             return;
         }
 
-        GameObject pieceObject = Instantiate(piecePrefab, new Vector3(4 * x, 0, 4 * y), Quaternion.identity, this.transform);
+        GameObject pieceObject = Instantiate(piecePrefab, new Vector3(2 * x, 0, 2 * y), Quaternion.identity, this.transform);
         _pieceViews[x, y] = pieceObject.GetComponent<PieceView>();
     }
 

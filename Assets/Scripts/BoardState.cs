@@ -58,11 +58,11 @@ public class BoardState
         _board = new Piece[8, 8];
 
         int boardSize = GetBoardSize();
-        //for (int i = 0; i < boardSize; i++)
-        //{
-        //    _board[i, 1] = new Piece(PieceType.Pawn, PlayerColor.White);
-        //    _board[i, 6] = new Piece(PieceType.Pawn, PlayerColor.Black);
-        //}
+        for (int i = 0; i < boardSize; i++)
+        {
+            _board[i, 1] = new Piece(PieceType.Pawn, PlayerColor.White);
+            _board[i, 6] = new Piece(PieceType.Pawn, PlayerColor.Black);
+        }
 
         _board[0, 0] = new Piece(PieceType.Rook, PlayerColor.White);
         _board[1, 0] = new Piece(PieceType.Knight, PlayerColor.White);
