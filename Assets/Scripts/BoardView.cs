@@ -37,7 +37,8 @@ public class BoardView : MonoBehaviour
             return;
         }
 
-        GameObject pieceObject = Instantiate(piecePrefab, new Vector3(2 * x, 0, 2 * y), Quaternion.identity, this.transform);
+        var rotation = (piece.Color == PlayerColor.White) ? Quaternion.identity : Quaternion.Euler(0, 180, 0);
+        GameObject pieceObject = Instantiate(piecePrefab, new Vector3(2 * x, 0, 2 * y), rotation, this.transform);
         _pieceViews[x, y] = pieceObject.GetComponent<PieceView>();
     }
 
