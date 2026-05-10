@@ -10,8 +10,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1368830657005001617, guid: 455303928b8120244a3d792aec1fd195, type: 3}
       propertyPath: m_Name
-      value: BasePiece
+      value: King
       objectReference: {fileID: 0}
+    - target: {fileID: 2011897448788754990, guid: 455303928b8120244a3d792aec1fd195, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2011897448788754990, guid: 455303928b8120244a3d792aec1fd195, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2011897448788754990, guid: 455303928b8120244a3d792aec1fd195, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111762706620493072, guid: 455303928b8120244a3d792aec1fd195, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -4175726406976504967, guid: 2ad8a76e541596446b0b7e2dbf82206f, type: 3}
     - target: {fileID: 8965096709362838245, guid: 455303928b8120244a3d792aec1fd195, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

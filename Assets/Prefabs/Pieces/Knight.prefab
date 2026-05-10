@@ -13,6 +13,18 @@ PrefabInstance:
       value: Knight
       objectReference: {fileID: 0}
     - target: {fileID: 2011897448788754990, guid: 455303928b8120244a3d792aec1fd195, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2011897448788754990, guid: 455303928b8120244a3d792aec1fd195, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2011897448788754990, guid: 455303928b8120244a3d792aec1fd195, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2011897448788754990, guid: 455303928b8120244a3d792aec1fd195, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.5
       objectReference: {fileID: 0}

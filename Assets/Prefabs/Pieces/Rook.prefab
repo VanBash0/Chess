@@ -12,10 +12,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rook
       objectReference: {fileID: 0}
+    - target: {fileID: 2011897448788754990, guid: 455303928b8120244a3d792aec1fd195, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2011897448788754990, guid: 455303928b8120244a3d792aec1fd195, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2011897448788754990, guid: 455303928b8120244a3d792aec1fd195, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3111762706620493072, guid: 455303928b8120244a3d792aec1fd195, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: -2806363557253865630, guid: b79688567f4b6224494281e87ce0506b, type: 3}
+      objectReference: {fileID: -2806363557253865630, guid: a25ea33e33419d541a479074641cde6d, type: 3}
     - target: {fileID: 8965096709362838245, guid: 455303928b8120244a3d792aec1fd195, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
