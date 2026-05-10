@@ -10,8 +10,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1368830657005001617, guid: 455303928b8120244a3d792aec1fd195, type: 3}
       propertyPath: m_Name
-      value: BasePiece
+      value: Rook
       objectReference: {fileID: 0}
+    - target: {fileID: 3111762706620493072, guid: 455303928b8120244a3d792aec1fd195, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2806363557253865630, guid: b79688567f4b6224494281e87ce0506b, type: 3}
     - target: {fileID: 8965096709362838245, guid: 455303928b8120244a3d792aec1fd195, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
