@@ -3,7 +3,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] BoardView boardView;
-    [SerializeField ] PieceLibrarySO pieceLibrary;
+    [SerializeField] PieceLibrarySO pieceLibrary;
+    [SerializeField] SquareLibrarySO squareLibrary;
 
     private MatchController _matchController;
     private BoardState _boardState;
@@ -13,7 +14,7 @@ public class GameManager : MonoBehaviour
         _boardState = new BoardState();
         _matchController = new MatchController(_boardState);
         
-        boardView.Initialize(_matchController, pieceLibrary);
+        boardView.Initialize(_matchController, pieceLibrary, squareLibrary);
         boardView.CreateInitialPieceViews(_boardState);
 
         Test();

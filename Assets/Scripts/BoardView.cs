@@ -2,14 +2,18 @@ using UnityEngine;
 
 public class BoardView : MonoBehaviour
 {
+    [SerializeField] private SquareView squarePrefab;
+
     private PieceView[,] _pieceViews;
     private PieceLibrarySO _pieceLibrary;
+    private SquareLibrarySO _squareLibrary;
 
-    public void Initialize(MatchController controller, PieceLibrarySO pieceLibrary)
+    public void Initialize(MatchController controller, PieceLibrarySO pieceLibrary, SquareLibrarySO squareLibrary)
     {
         controller.OnMoveExecuted += MovePiece;
         _pieceLibrary = pieceLibrary;
         _pieceViews = new PieceView[8, 8];
+        _squareLibrary = squareLibrary;
     }
 
     public void CreateInitialPieceViews(BoardState state)
@@ -24,8 +28,18 @@ public class BoardView : MonoBehaviour
                 {
                     CreatePieceView(x, y, piece);
                 }
+
+                CreateSquareView(x, y);
             }
         }
+    }
+
+    private void CreateSquareView(int x, int y)
+    {
+        SquareView square = Instantiate(squarePrefab, new Vector3(2 * x, -1f, 2 * y), Quaternion.identity, this.transform);
+        var color = ((x + y) % 2 == 0) ? PlayerColor.White : PlayerColor.Black;
+        var material = _squareLibrary.GetSquareMaterial(color);
+        square.SetMaterial(material);
     }
 
     private void CreatePieceView(int x, int y, Piece piece)
@@ -39,7 +53,12 @@ public class BoardView : MonoBehaviour
 
         var rotation = (piece.Color == PlayerColor.White) ? Quaternion.identity : Quaternion.Euler(0, 180, 0);
         GameObject pieceObject = Instantiate(piecePrefab, new Vector3(2 * x, 0, 2 * y), rotation, this.transform);
-        _pieceViews[x, y] = pieceObject.GetComponent<PieceView>();
+
+        var pieceView = pieceObject.GetComponent<PieceView>();
+        _pieceViews[x, y] = pieceView;
+
+        var material = _pieceLibrary.GetPieceMaterial(piece.Color);
+        pieceView.SetMaterial(material);
     }
 
     private void MovePiece(object sender, MatchController.MoveExecutedEventArgs e)

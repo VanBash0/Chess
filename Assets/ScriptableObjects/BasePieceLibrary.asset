@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25a0ba9aad310e34e8ffefda857b6376, type: 3}
-  m_Name: PieceLibrary
+  m_Name: BasePieceLibrary
   m_EditorClassIdentifier: Assembly-CSharp::PieceLibrarySO
-  _pieceData:
+  pieceData:
   - pieceType: 0
     playerColor: 0
     piecePrefab: {fileID: 60746142002021377, guid: f9938d1dd297be244acb567c74dc2ecf, type: 3}
@@ -49,3 +49,5 @@ MonoBehaviour:
   - pieceType: 5
     playerColor: 1
     piecePrefab: {fileID: 5895792510195512458, guid: 6e30688007f1a914888ed82c2b9192bb, type: 3}
+  whitePieceMaterial: {fileID: 2100000, guid: 5e1ea30f8e0b0034cb25bfee338793cd, type: 2}
+  blackPieceMaterial: {fileID: 2100000, guid: e4da5f4efed78fd439d3c94cd83b431f, type: 2}

@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eca08e6693f60814aa346db9ac95c0b1, type: 3}
+  m_Name: BaseSquareLibrary
+  m_EditorClassIdentifier: Assembly-CSharp::SquareLibrarySO
+  whiteSquareMaterial: {fileID: 2100000, guid: 36a289ae7c82fb8448ebf7b91c977c89, type: 2}
+  blackSquareMaterial: {fileID: 2100000, guid: 6bbefe0b7cf3be245bc6588dfbc823e9, type: 2}
