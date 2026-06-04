@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] BoardView boardView;
     [SerializeField] PieceLibrarySO pieceLibrary;
     [SerializeField] SquareLibrarySO squareLibrary;
+    [SerializeField] PlayerInput playerInput;
 
     private MatchController _matchController;
     private BoardState _boardState;
@@ -17,20 +18,11 @@ public class GameManager : MonoBehaviour
         boardView.Initialize(_matchController, pieceLibrary, squareLibrary);
         boardView.CreateInitialPieceViews(_boardState);
 
-        Test();
+        playerInput.OnSquareSelected += HandleSquareSelected;
     }
 
-    private void Test()
+    private void HandleSquareSelected(object sender, PlayerInput.SquareSelectedEventArgs e)
     {
-        var legalMoves = MoveGenerator.GenerateLegalMoves(_boardState);
-        foreach (var move in legalMoves)
-        {
-            var from = SquareTranslator.GetNotation(move.From);
-            var to = SquareTranslator.GetNotation(move.To);
-            if (move.CapturedPiece != null)
-                UnityEngine.Debug.Log($"Legal move: {from} to {to} by {move.ActivePiece.Color} {move.ActivePiece.Type} with taking of {move.CapturedPiece.Color} {move.CapturedPiece.Type}");
-            else
-                UnityEngine.Debug.Log($"Legal move: {from} to {to} by {move.ActivePiece.Color} {move.ActivePiece.Type}");
-        }
+        _matchController.SelectSquare(e.SquareCoord);
     }
 }

@@ -41,6 +41,8 @@ public class BoardState
 
     public Piece GetPiece(int x, int y) => _board[x, y];
 
+    public Piece GetPiece((int, int) coord) => _board[coord.Item1, coord.Item2];
+
     public (int, int)? GetEnPassantTarget() => _enPassantTarget;
 
     public (int, int) GetKingPosition(PlayerColor color) => (color == PlayerColor.White) ? _whiteKingPosition : _blackKingPosition;

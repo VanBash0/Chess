@@ -3,10 +3,24 @@ using UnityEngine;
 public class PieceView : MonoBehaviour
 {
     [SerializeField] private MeshRenderer _meshRenderer;
+    private int _x;
+    private int _y;
 
-    public void MoveTo(Vector3 targetPos)
+    public void MoveTo(Vector3 targetPos, int newX, int newY)
     {
         transform.position = targetPos;
+        SetCoords(newX, newY);
+    }
+
+    public void SetCoords(int x, int y)
+    {
+        _x = x;
+        _y = y;
+    }
+
+    public (int, int) GetPieceCoordinates()
+    {
+        return (_x, _y);
     }
 
     public void DestroyPiece()
@@ -16,6 +30,6 @@ public class PieceView : MonoBehaviour
 
     public void SetMaterial(Material material)
     {
-        _meshRenderer.material = material;
+        _meshRenderer.sharedMaterial = material;
     }
 }
