@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using UnityEngine;
 
 public static class PossibleMoveGenerator
 {
@@ -58,7 +60,7 @@ public static class PossibleMoveGenerator
             bool isOnStartPos = (color == PlayerColor.White && y == 1) || (color == PlayerColor.Black && y == 6);
             if (isOnStartPos && state.IsSquareOnBoard(x, y + 2 * direction) && state.IsSquareEmpty(x, y + 2 * direction))
             {
-                moves.Add(new Move((x, y), (x, y + 2 * direction), pawn));
+                moves.Add(new Move((x, y), (x, y + 2 * direction), pawn, newEnPassantTarget: (x, y + direction)));
             }
         }
 
@@ -71,14 +73,18 @@ public static class PossibleMoveGenerator
 
             var targetPiece = state.GetPiece(targetX, targetY);
 
-            if (targetPiece != null && targetPiece.Color != color)
-                moves.Add(new Move((x, y), (targetX, targetY), pawn, targetPiece));
-
-            else if (targetPiece == null && state.IsSquareOnBoard(targetX, y) && state.GetEnPassantTarget() == (targetX, targetY))
+            if ((targetPiece != null && targetPiece.Color != color))
             {
-                var sidePawn = state.GetPiece(targetX, y);
-                if (sidePawn is not null && sidePawn.Color != color)
-                    moves.Add(new Move((x, y), (targetX, targetY), pawn, sidePawn));
+                moves.Add(new Move((x, y), (targetX, targetY), pawn, targetPiece));
+            }
+
+            else if (state.GetEnPassantTarget() == (targetX, targetY))
+            {
+                var enemyPawn = state.GetPiece(targetX, y);
+                if (enemyPawn == null || enemyPawn.Color == color)
+                    UnityEngine.Debug.LogError("En passant capture attempted but no enemy pawn found.");
+
+                moves.Add(new Move((x, y), (targetX, targetY), pawn, enemyPawn, isEnPassant: true));
             }
         }
 

@@ -6,14 +6,16 @@ public struct Move
     public Piece CapturedPiece;
     public bool IsEnPassant;
     public bool IsCastling;
+    public (int, int)? NewEnPassantTarget;
 
-    public Move((int, int) start, (int, int) end, Piece active, Piece captured = null)
+    public Move((int, int) start, (int, int) end, Piece active, Piece captured = null, bool isEnPassant = false, bool isCastling = false, (int, int)? newEnPassantTarget = null)
     {
         From = start;
         To = end;
         ActivePiece = active;
         CapturedPiece = captured;
-        IsEnPassant = false;
-        IsCastling = false;
+        IsEnPassant = isEnPassant;
+        IsCastling = isCastling;
+        NewEnPassantTarget = newEnPassantTarget;
     }
 }

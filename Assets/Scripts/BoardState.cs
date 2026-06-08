@@ -8,8 +8,6 @@ public class BoardState
 {
     private Piece[,] _board;
     private PlayerColor _currentPlayer = PlayerColor.White;
-    private bool _hasWhiteCastled = false;
-    private bool _hasBlackCastled = false;
     private (int, int)? _enPassantTarget = null;
     private (int, int) _whiteKingPosition = (4, 0);
     private (int, int) _blackKingPosition = (4, 7);
@@ -53,6 +51,11 @@ public class BoardState
             _whiteKingPosition = position;
         else
             _blackKingPosition = position;
+    }
+
+    public void SetEnPassantTarget((int, int)? target)
+    {
+        _enPassantTarget = target;
     }
 
     public BoardState()

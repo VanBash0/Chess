@@ -71,7 +71,7 @@ public class BoardView : MonoBehaviour
     private void CreateSquareView(int x, int y)
     {
         SquareView square = Instantiate(squarePrefab, new Vector3(SCALE * x, -1f, SCALE * y), Quaternion.identity, this.transform);
-        var color = ((x + y) % 2 == 0) ? PlayerColor.White : PlayerColor.Black;
+        var color = ((x + y) % 2 == 0) ? PlayerColor.Black : PlayerColor.White;
         var material = _squareLibrary.GetSquareMaterial(color);
         square.SetBaseMaterial(material);
         square.SetCoords(x, y);
@@ -109,7 +109,8 @@ public class BoardView : MonoBehaviour
 
         if (move.CapturedPiece != null)
         {
-            var capturedPiece = _pieceViews[toX, toY];
+            var targetY = move.IsEnPassant ? fromY : toY;
+            var capturedPiece = _pieceViews[toX, targetY];
             if (capturedPiece != null)
                 capturedPiece.DestroyPiece();
         }
